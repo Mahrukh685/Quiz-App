@@ -5,7 +5,7 @@ const questions=[
         B:" Coorrective Style Sheet",
         C:"Cascading Style Sheet",
         D:"Computer Style Sheet",
-        Ans:"B",
+        Ans:"A",
     
     },
     {   Id:2,

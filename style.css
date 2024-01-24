@@ -14,11 +14,15 @@ flex-direction:row;
 .row{
 display:flex;
 flex-direction:row;
+/* justify-content: space-between; */
+
 align-items: center;
 
 }
 
 
 button{
+
     height:30px;
+    margin-left:20px;
 }
