@@ -30,7 +30,7 @@ function getQuestion() {
 
     btn1.onclick = function () {
         answeres[index] = option1.id
-        
+
 
         console.log(answeres)
         option1.classList.add("optioncolor")
@@ -116,30 +116,53 @@ function getQuestion() {
 
 function NextQuestion() {
     if (index >= questions.length - 1) {
-        window.location.href="showresult.html?marks="+marks;
+        window.location.href = "showresult.html?marks=" + marks;
         return;
     }
 
-    else if(answeres[index]==undefined){
-        
-        
+    else if (answeres[index] == undefined) {
+
+
         return;
 
     }
-     if(answeres[index]==questions[index].Ans){
+    if (answeres[index] == questions[index].Ans) {
         console.log(questions[index].Ans)
         marks++
         console.log(typeof marks)
     }
 
 
-    
-  
+
+
     index++
     container.innerHTML = "";
     getQuestion()
-    
+
 }
+
+let minute = 0
+let secondd = 0
+let min = document.getElementById("min")
+let second = document.getElementById("second")
+
+function starttimer() {
+    secondd++
+    second.innerHTML = secondd;
+    if(secondd>=60){
+      secondd=0
+      minute++
+      min.innerHTML=minute;
+      second.innerHTML=0;
+      clearInterval(timer);
+
+}
+}
+
+let timer=setInterval(starttimer, 1000);
+
+
+
 
 
 

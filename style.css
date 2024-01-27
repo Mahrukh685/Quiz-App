@@ -35,3 +35,8 @@ button{
 .removeoptioncolor{
     background-color: none;
 }
+
+#parent{
+    display:flex;
+    flex-direction: row;
+}
