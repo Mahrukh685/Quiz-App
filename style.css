@@ -26,3 +26,12 @@ button{
     height:30px;
     margin-left:20px;
 }
+
+.optioncolor{
+    background-color: goldenrod;
+}
+
+
+.removeoptioncolor{
+    background-color: none;
+}

@@ -1,6 +1,6 @@
 let index = 0;
-let marks=0;
-let answeres=[]
+let marks = 1;
+let answeres = []
 
 const container = document.getElementById("container")
 const showindex = document.getElementById("show_index")
@@ -24,32 +24,51 @@ function getQuestion() {
     let btn1 = document.createElement("button");
     let btn2 = document.createElement("button");
     let btn3 = document.createElement("button");
-    let div4=document.createElement("div")
-    let btn4=document.createElement("button")
+    let div4 = document.createElement("div")
+    let btn4 = document.createElement("button")
 
 
     btn1.onclick = function () {
-        answeres[0]=option1.id
-
+        answeres[index] = option1.id
         
 
         console.log(answeres)
-    
-    
+        option1.classList.add("optioncolor")
+        option2.classList.remove("optioncolor")
+        option3.classList.remove("optioncolor")
+        option4.classList.remove("optioncolor")
+
+
     }
 
     btn2.onclick = function () {
-        answeres[0]=option2.id
+        option2.classList.add("optioncolor")
+        option1.classList.remove("optioncolor")
+        option3.classList.remove("optioncolor")
+        option4.classList.remove("optioncolor")
+
+        answeres[index] = option2.id
         console.log(answeres)
 
     }
     btn3.onclick = function () {
-        answeres[0]=option3.id
+        answeres[index] = option3.id
         console.log(answeres)
+
+        option2.classList.remove("optioncolor")
+        option1.classList.remove("optioncolor")
+        option3.classList.add("optioncolor")
+        option4.classList.remove("optioncolor")
     }
-    btn4.onclick=function(){
-        answeres[0]=option4.id
+    btn4.onclick = function () {
+
+        option2.classList.remove("optioncolor")
+        option1.classList.remove("optioncolor")
+        option3.classList.remove("optioncolor")
+        option4.classList.add("optioncolor")
+        answeres[index] = option4.id
         console.log(answeres)
+
 
     }
 
@@ -59,10 +78,12 @@ function getQuestion() {
     option2.textContent = questions[index].B;
     option3.textContent = questions[index].C;
     option4.textContent = questions[index].D;
-    option1.id="A";
-    option2.id="B";
-    option3.id="C";
-    option4.id="D";
+
+    option1.id = "A";
+    option2.id = "B";
+    option3.id = "C";
+    option4.id = "D";
+
     div1.appendChild(option1);
     div1.appendChild(btn1);
 
@@ -81,7 +102,7 @@ function getQuestion() {
     div2.classList.add("row")
     btn3.innerHTML = "c";
     div3.classList.add("row")
-    btn4.innerHTML="d"
+    btn4.innerHTML = "d"
     div4.classList.add("row")
 
     container.appendChild(question)
@@ -92,15 +113,34 @@ function getQuestion() {
 
 }
 
+
 function NextQuestion() {
     if (index >= questions.length - 1) {
+        window.location.href="showresult.html?marks="+marks;
         return;
     }
+
+    else if(answeres[index]==undefined){
+        
+        
+        return;
+
+    }
+     if(answeres[index]==questions[index].Ans){
+        console.log(questions[index].Ans)
+        marks++
+        console.log(typeof marks)
+    }
+
+
+    
+  
     index++
     container.innerHTML = "";
     getQuestion()
-
+    
 }
+
 
 
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2 id="marks">your marks is </h2>
+
+    <h2 id="percentage">your percentage is </h2>
+
+    
+
+
+
+
+
+</body>
+<script>
+    const searchParams = new URLSearchParams(window.location.search);
+    let marks = document.getElementById("marks")
+    marks.innerHTML+= searchParams.get("marks");
+
+
+    let total_marks = 3;
+    let percentage = document.getElementById("percentage")
+
+    let result =searchParams.get("marks") / total_marks * 100;
+    percentage.innerHTML+= result + "%";
+    console.log(result + "%")
+
+
+
+    
+
+
+
+
+
+
+
+
+</script>
+
+</html>
