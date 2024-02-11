@@ -1,10 +1,12 @@
 let index = 0;
 let marks = 1;
+let percent=0;
 let answeres = []
 
 const container = document.getElementById("container")
 const showindex = document.getElementById("show_index")
 const showquestion = document.getElementById("show_question")
+
 
 
 showquestion.innerHTML = questions.length;
@@ -143,23 +145,43 @@ function NextQuestion() {
 
 let minute = 0
 let secondd = 0
+
 let min = document.getElementById("min")
 let second = document.getElementById("second")
 
 function starttimer() {
     secondd++
-    second.innerHTML = secondd;
-    if(secondd>=60){
-      secondd=0
-      minute++
-      min.innerHTML=minute;
-      second.innerHTML=0;
-      clearInterval(timer);
+   if(secondd.toString().length==1){
+      second.innerHTML="0"+secondd;
+   }else{
+    second.innerHTML=secondd;
+   }
 
-}
+  let progressdiv=document.getElementById("progress-spinner")
+  percent=(secondd/60)*100;
+  progressdiv.style.background=`conic-gradient(rgb(3, 133, 255) ${percent}% ,rgb(242, 242, 242) ${percent}%)`
+  console.log(percent)
+  
+
+
+    if (secondd >= 60) {
+        secondd = 0
+        minute++
+        if(minute.toString().length==1){
+            min.innerHTML="0"+minute;
+
+        }else{
+            min.innerHTML=minute;
+        }
+        
+        second.innerHTML = "00";
+        clearInterval(timer);
+
+    }
+    
 }
 
-let timer=setInterval(starttimer, 1000);
+let timer = setInterval(starttimer, 1000);
 
 
 

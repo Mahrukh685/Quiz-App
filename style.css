@@ -40,3 +40,31 @@ button{
     display:flex;
     flex-direction: row;
 }
+
+
+
+
+  
+  #progress-spinner {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background: conic-gradient(rgb(3, 133, 255) 1%, rgb(242, 242, 242) 1%);
+    
+  }
+  
+  #middle-circle {
+    position: absolute;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  background: rgb(248, 248, 248);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  font-weight: bold;
+  }
+
+  /* `conic-gradient(rgb(3, 133, 255) ${percent}%,rgb(242, 242, 242) ${percent}%);` */
+  
